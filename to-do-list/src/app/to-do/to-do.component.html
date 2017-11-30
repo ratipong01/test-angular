@@ -1,7 +1,7 @@
 <div class="content">
   <div class="input-textbox">
     <input id="addBox" [(ngModel)]="text" placeholder="to-do"/>
-    <button (click)="addToDo(text)">ADD</button>
+    <button (click)="addToDo(text); text=null">ADD</button>
   </div>
   <div class="input-textbox">
     <input id="searchBox" [(ngModel)]="textSearch" placeholder="Search to do list" />

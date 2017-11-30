@@ -1,0 +1,19 @@
+<div>
+  <div class="input-textbox">
+    <input id="addBox" [(ngModel)]="text" placeholder="to-do"/>
+    <button (click)="addItem(text)">ADD</button>
+  </div>
+  <div class="input-textbox">
+    <input id="searchBox" placeholder="Search to do list" />
+    <input type="checkbox">
+    <label>show only undone work</label>
+  </div>
+  <table id="items">
+    <tr *ngFor="let item of toDoLists">
+      <td><input type="checkbox" value={{item.id}} (change)="checkboxValue()"></td>
+      <td><span>{{item.name}}</span></td>
+      <td>{{item.date | date:"dd/MM/yyyy"}}</td>
+      <td><button (click)="deleteItem()">X</button></td>
+    </tr>
+  </table>
+</div>

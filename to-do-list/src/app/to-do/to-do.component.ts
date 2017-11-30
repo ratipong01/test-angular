@@ -12,7 +12,6 @@ import { ToDoService } from '../service/to-do.service';
 export class ToDoComponent implements OnInit {
 
   toDoList: ToDo[];
-  //newToDo: ToDo = new ToDo();
 
   constructor(private toDoService: ToDoService) { }
 
@@ -25,9 +24,7 @@ export class ToDoComponent implements OnInit {
   }
 
   addToDo(text) {
-    if(text.trim()) {
-      this.toDoService.addToDo(text);
-    }
+    this.toDoList = this.toDoService.addToDo(text);
   }
 
   deleteToDo(toDo) {

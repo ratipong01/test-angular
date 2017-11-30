@@ -4,16 +4,23 @@
     <button (click)="addToDo(text)">ADD</button>
   </div>
   <div class="input-textbox">
-    <input id="searchBox" placeholder="Search to do list" />
-    <input type="checkbox"> show only undone work
+    <input id="searchBox" [(ngModel)]="textSearch" placeholder="Search to do list" />
+    <input type="checkbox" [(ngModel)]="isShow"> show only undone work
   </div>
   <table id="items">
-    <tr *ngFor="let toDo of toDoList" [class.checked]="toDo.isChecked">
-      <td><input type="checkbox" (click)="toggleToDo(toDo)"></td>
-      <td><span>{{toDo.id}}</span></td>
-      <td><span>{{toDo.text}}</span></td>
-      <td><span>{{toDo.date | date:"dd/MM/yyyy HH:mm:ss"}}</span></td>
-      <td><button (click)="deleteToDo(toDo)">X</button></td>
+    <tr *ngFor="let toDo of toDoList | myFilter: textSearch" [class.checked]="toDo.isChecked">
+      <td *ngIf="(!isShow && (toDo.isChecked || !toDo.isChecked)) || (isShow && !toDo.isChecked)">
+        <input type="checkbox" (click)="toggleToDo(toDo)">
+      </td>
+      <td *ngIf="(!isShow && (toDo.isChecked || !toDo.isChecked)) || (isShow && !toDo.isChecked)">
+        <span>{{toDo.text}}</span>
+      </td>
+      <td *ngIf="(!isShow && (toDo.isChecked || !toDo.isChecked)) || (isShow && !toDo.isChecked)">
+        <span>{{toDo.date | date:"dd/MM/yyyy HH:mm:ss"}}</span>
+      </td>
+      <td *ngIf="(!isShow && (toDo.isChecked || !toDo.isChecked)) || (isShow && !toDo.isChecked)">
+        <button (click)="deleteToDo(toDo)">X</button>
+      </td>
     </tr>
   </table>
 </div>

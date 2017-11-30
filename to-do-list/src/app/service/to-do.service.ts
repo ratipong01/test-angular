@@ -16,16 +16,18 @@ export class ToDoService {
     return this.toDoList;
   }
 
-  addToDo(text: string): ToDoService {
-    if (!this.toDo.id) {
-      this.toDo.id = ++this.lastId;
-      this.toDo.text = text;
-      this.toDo.date = Date.now();
-      this.toDo.isChecked = false;
+  addToDo(text: string): ToDo[] {
+    if(text.trim()) {
+      if (!this.toDo.id) {
+        this.toDo.id = ++this.lastId;
+        this.toDo.text = text;
+        this.toDo.date = Date.now();
+        this.toDo.isChecked = false;
+      }
+      this.toDoList.push(this.toDo);
+      this.toDo = new ToDo();
     }
-    this.toDoList.push(this.toDo);
-    this.toDo = new ToDo();
-    return this;
+    return this.toDoList;
   }
 
   deleteToDoById(id: number): ToDo[] {
@@ -35,8 +37,7 @@ export class ToDoService {
   }
 
   toggleToDo(toDo: ToDo) {
-    //if(this.toDoList.filter(s => s.id === toDo.id)) {
       toDo.isChecked = !toDo.isChecked;
-    //}
   }
+
 }

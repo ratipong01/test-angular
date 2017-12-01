@@ -1,16 +1,19 @@
 <div class="content">
+  
   <div class="input-textbox">
     <input id="addBox" [(ngModel)]="text" placeholder="to-do"/>
     <button (click)="addToDo(text); text=null">ADD</button>
   </div>
+
   <div class="input-textbox">
     <input id="searchBox" [(ngModel)]="textSearch" placeholder="Search to do list" />
     <input type="checkbox" [(ngModel)]="isShow"> show only undone work
   </div>
+
   <table id="items">
     <tr *ngFor="let toDo of toDoList | myFilter: textSearch" [class.checked]="toDo.isChecked" [hidden]="isShow && toDo.isChecked">
       <td>
-        <input type="checkbox" (click)="toggleToDo(toDo)">
+        <input type="checkbox" (click)="toggleToDoComplete(toDo)">
       </td>
       <td>
         <span>{{toDo.text}}</span>
@@ -23,4 +26,5 @@
       </td>
     </tr>
   </table>
+
 </div>

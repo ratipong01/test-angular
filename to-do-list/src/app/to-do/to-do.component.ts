@@ -31,8 +31,8 @@ export class ToDoComponent implements OnInit {
     this.toDoList = this.toDoService.deleteToDoById(toDo.id);
   }
 
-  toggleToDo(toDo) {
-    this.toDoService.toggleToDo(toDo);
+  toggleToDoComplete(toDo) {
+    this.toDoService.toggleToDoComplete(toDo);
   }
 
 }

@@ -36,7 +36,7 @@ export class ToDoService {
     return this.toDoList;
   }
 
-  toggleToDo(toDo: ToDo) {
+  toggleToDoComplete(toDo: ToDo) {
       toDo.isChecked = !toDo.isChecked;
   }
 

@@ -13,7 +13,7 @@
   <table id="items">
     <tr *ngFor="let toDo of toDoList | myFilter: textSearch" [class.checked]="toDo.isChecked" [hidden]="isShow && toDo.isChecked">
       <td>
-        <input type="checkbox" (click)="toggleToDoComplete(toDo)">
+        <input type="checkbox" (click)="toggleToDoComplete(toDo)" [(ngModel)]="toDo.isChecked">
       </td>
       <td>
         <span>{{toDo.text}}</span>

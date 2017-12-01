@@ -1,3 +1,7 @@
-tr.checked td span {
+.input-textbox {
+    padding-bottom: 10px;
+}
+
+tr.checked span {
     text-decoration: line-through;
 }

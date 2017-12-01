@@ -17,7 +17,7 @@ export class ToDoService {
   }
 
   addToDo(text: string): ToDo[] {
-    if(text.trim()) {
+    if (text.trim()) {
       if (!this.toDo.id) {
         this.toDo.id = ++this.lastId;
         this.toDo.text = text;
@@ -37,7 +37,7 @@ export class ToDoService {
   }
 
   toggleToDoComplete(toDo: ToDo) {
-      toDo.isChecked = !toDo.isChecked;
+    toDo.isChecked = !toDo.isChecked;
   }
 
 }

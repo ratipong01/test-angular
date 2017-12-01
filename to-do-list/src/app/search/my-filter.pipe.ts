@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MyFilterPipe implements PipeTransform {
 
   transform(value: any, filter: string): any {
-    if(!value || !filter){
+    if (!value || !filter) {
       return value;
     }
     return value.filter(s => s.text.indexOf(filter) !== -1);

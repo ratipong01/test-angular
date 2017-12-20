@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Organization Chart Plugin</title>
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jquery.orgchart.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="chart-container"></div>
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.orgchart.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+
+    var datascource = {
+      'id': 'n1',
+      'name': 'Lao Lao',
+      'title': 'general manager',
+      'children': [
+        { 'id': 'n2', 'name': 'Bo Miao', 'title': 'department manager' },
+        { 'id': 'n3', 'name': 'Su Miao', 'title': 'department manager',
+          'children': [
+            { 'id': 'n4', 'name': 'Tie Hua', 'title': 'senior engineer' },
+            { 'id': 'n5', 'name': 'Hei Hei', 'title': 'senior engineer',
+              'children': [
+                { 'id': 'n6', 'name': 'Pang Pang', 'title': 'engineer' },
+                { 'id': 'n7', 'name': 'Xiang Xiang', 'title': 'UE engineer' }
+              ]
+            }
+          ]
+        },
+        { 'id': 'n8', 'name': 'Yu Jie', 'title': 'department manager' },
+        { 'id': 'n9', 'name': 'Yu Li', 'title': 'department manager' },
+        { 'id': 'n10', 'name': 'Hong Miao', 'title': 'department manager' },
+        { 'id': 'n11', 'name': 'Yu Wei', 'title': 'department manager' },
+        { 'id': 'n12', 'name': 'Chun Miao', 'title': 'department manager' },
+        { 'id': 'n13', 'name': 'Yu Tie', 'title': 'department manager' }
+      ]
+    };
+
+    $('#chart-container').orgchart({
+      'data' : datascource,
+      'nodeContent': 'title'
+    });
+
+  });
+  </script>
+  </body>
+</html>
